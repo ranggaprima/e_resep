@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 768px) {
+  .sidebar-collapsed {
+    width: 64px;
+  }
+
+  .sidebar-expanded {
+    width: 256px;
+  }
+
+  .sidebar-hidden {
+    transform: translateX(-100%);
+  }
+}
+
+.sidebar:hover {
+  width: 256px !important;
+}
