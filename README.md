@@ -73,7 +73,7 @@ sudo apt get install npm
 [ ] Clone the repo and type the following commands to run the app:
 
 ```
-https://github.com/ranggaprima/e_resep
+https://github.com/ranggaprima/e_resep.git
 
 ```
 
