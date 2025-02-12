@@ -58,8 +58,14 @@ A React boilerplate repo using Webpack 4, Babel, Eslint and Prettier. The repo w
 ## Instalation
 
 [ ] Download Node JS from the Official: https://nodejs.org/en/download
+```
+```
 [ ] Open Console or Terminal
+```
+```
 [ ] Windows: npm install -g npm or Ubuntu: sudo apt get install npm
+```
+```
 [ ] Clone the repo and type the following commands to run the app:
 
 ```
