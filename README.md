@@ -62,10 +62,14 @@ A React boilerplate repo using Webpack 4, Babel, Eslint and Prettier. The repo w
 ```
 [ ] Open Console or Terminal
 ```
+Windows
+npm install -g npm
 ```
-[ ] Windows: npm install -g npm or Ubuntu: sudo apt get install npm
 ```
+Ubuntu
+sudo apt get install npm
 ```
+
 [ ] Clone the repo and type the following commands to run the app:
 
 ```
@@ -77,15 +81,16 @@ https://github.com/ranggaprima/e_resep
 
 ```
     npm install or yarn install
+```
 
-    if encounter a problem error or deprecated
+##if encounter a problem error or deprecated
+```
 
     Running the following command
 
     [ ] npm cache clean --force
     [ ] npm install --force
 ```
-
 
 ## Usage
 
