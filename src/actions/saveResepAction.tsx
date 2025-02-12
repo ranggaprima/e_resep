@@ -1,12 +1,13 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import apiConfig from '../config/apiConfig';
 
 export const saveResep = (formValues: any) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
   console.log('SAVING....: ', formValues)
   dispatch({ type: 'SAVE_RESEP_REQUEST' });
   try {
-    let apiUrl = `http://116.193.190.138:9000/api/pelayanan/e_resep`
-    const response = await fetch(apiUrl, {
+    const url = apiConfig(`pelayanan/e_resep`);
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
