@@ -16,13 +16,21 @@ interface MedicineSelectProps {
 const MedicineSelect: React.FC<MedicineSelectProps> = ({ onSelectChange, className }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [defaultOption, setDefaultOption] = useState<OptionType | null>(null);
   const dispatch = useDispatch();
   const { dokter, loading } = useSelector((state: any) => state.dokter);
 
-
   useEffect(() => {
+    setDefaultOption({ value: '000820', label: 'Admin Farmagitechs' });
     dispatch(fetchDokters('', 1));  // Fetch with default query and page 1
   }, [dispatch]);
+
+  useEffect(() => {
+    if (dokter && dokter.length > 0) {
+      // Set the default option to the first dokter in the list
+      setDefaultOption({ value: '000820', label: 'Admin Farmagitechs' });
+    }
+  }, [dokter]);
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
@@ -41,8 +49,8 @@ const MedicineSelect: React.FC<MedicineSelectProps> = ({ onSelectChange, classNa
 
   const handleChange = (selectedOption: OptionType | null) => {
     if (selectedOption) {
-      const selectedMedicine = dokter.find((item: any) => item.id === selectedOption.value);
-      onSelectChange(selectedMedicine);
+      const selectedDokter = dokter.find((item: any) => item.id === selectedOption.value);
+      onSelectChange(selectedDokter);
     } else {
       onSelectChange(null);
     }
@@ -55,6 +63,7 @@ const MedicineSelect: React.FC<MedicineSelectProps> = ({ onSelectChange, classNa
         isLoading={loading}
         onInputChange={handleInputChange}
         onChange={handleChange}
+        defaultValue={defaultOption}
         className={className}
       />
     </div>
