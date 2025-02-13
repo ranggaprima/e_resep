@@ -141,9 +141,7 @@ const handleMedicineChange = (selectedMedicine: any) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(name, value)
     const updatedFormValues = { ...formValues, [name]: value };
-    setJam0(value)
 
     if (name === 'permintaan') {
       updatedFormValues['jt1'] = value;
