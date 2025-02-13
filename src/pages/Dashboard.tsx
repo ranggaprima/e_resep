@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [dosisRacik, setDosisRacik] = useState('');
   const [satuanKekuatan, setSatuanKekuatan] = useState('');
   const [admintime, setAdminTime] = useState('');
-  const [jam0, setJam0] = useState(null);
+  const [jam0, setJam0] = useState('');
   const [ap, setAp] = useState('')
   const [timing, setTiming] = useState('')
   const [aturanpakai2, setAturanpakai2] = useState('')
@@ -119,8 +119,11 @@ const handleMedicineChange = (selectedMedicine: any) => {
       setAturanpakai2(selectedRule.keterangan)
       setJam0('06:00')
     } else {
-      setKekuatan1('');
-      setSatuanKekuatan('');
+      setAp('')
+      setAdminTime('')
+      setTiming('')
+      setAturanpakai2('')
+      setJam0('')
     }
   };
 
@@ -138,7 +141,9 @@ const handleMedicineChange = (selectedMedicine: any) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    console.log(name, value)
     const updatedFormValues = { ...formValues, [name]: value };
+    setJam0(value)
 
     if (name === 'permintaan') {
       updatedFormValues['jt1'] = value;
