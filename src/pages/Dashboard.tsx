@@ -75,41 +75,40 @@ const Dashboard = () => {
     return () => clearInterval(timer);
   }, []);
 
-const handleMedicineChange = (selectedMedicine: any) => {
-  console.log('selectedMedicine: ', selectedMedicine);
-  
-  setSelectedMedicine(selectedMedicine);
-  
-  if (selectedMedicine) {
-    setKekuatan1(selectedMedicine.kekuatan);
-    setSatuanKekuatan(selectedMedicine.satuan_kekuatan);
-    setDosisRacik(selectedMedicine.kekuatan);
-    setMedicineName(selectedMedicine.nama)
-    setFormValues({
-      ...formValues,
-      namaObat: selectedMedicine.nama,
-      id_barang: selectedMedicine.id,
-      kekuatan1: selectedMedicine.kekuatan,
-      dosisracik: selectedMedicine.kekuatan,
-    });
-  } else {
-    setKekuatan1('');
-    setSatuanKekuatan('');
-    setDosisRacik('');
-    setMedicineName('');
+  const handleMedicineChange = (selectedMedicine: any) => {
+    console.log('selectedMedicine: ', selectedMedicine);
+    
+    setSelectedMedicine(selectedMedicine);
+    
+    if (selectedMedicine) {
+      setKekuatan1(selectedMedicine.kekuatan);
+      setSatuanKekuatan(selectedMedicine.satuan_kekuatan);
+      setDosisRacik(selectedMedicine.kekuatan);
+      setMedicineName(selectedMedicine.nama)
+      setFormValues({
+        ...formValues,
+        namaObat: selectedMedicine.nama,
+        id_barang: selectedMedicine.id,
+        kekuatan1: selectedMedicine.kekuatan,
+        dosisracik: selectedMedicine.kekuatan,
+      });
+    } else {
+      setKekuatan1('');
+      setSatuanKekuatan('');
+      setDosisRacik('');
+      setMedicineName('');
 
-    setFormValues({
-      ...formValues,
-      id_barang: '',
-      kekuatan1: '',
-      dosisracik: '',
-    });
-  }
+      setFormValues({
+        ...formValues,
+        id_barang: '',
+        kekuatan1: '',
+        dosisracik: '',
+      });
+    }
 
-  console.log(formValues);
-};
+    console.log(formValues);
+  };
   
-
   const handleRuleChange = (selectedRule: any) => {
     console.log('selectedRule ', selectedRule)
     if (selectedRule) {
@@ -118,10 +117,22 @@ const handleMedicineChange = (selectedMedicine: any) => {
       setTiming('sebelum')
       setAturanpakai2(selectedRule.keterangan)
       setJam0('06:00')
+      setFormValues({
+        ...formValues,
+        admintime: 'pagi',
+        jam0: '06:00',
+        waktu_pemberian1: 'pagi: 06:00'
+      });
     } else {
       setKekuatan1('');
       setSatuanKekuatan('');
       setJam0('')
+      setFormValues({
+        ...formValues,
+        admintime: '',
+        jam0: '',
+        waktu_pemberian1: ''
+      });
     }
   };
 
@@ -130,8 +141,10 @@ const handleMedicineChange = (selectedMedicine: any) => {
   };
 
   const handleAdminTimeSelect = (e: any) => {
-    setAdminTime(e.target.value)
-  }
+    const newAdminTime = e.target.value;
+    setAdminTime(newAdminTime);
+    setFormValues({ ...formValues, admintime: newAdminTime });
+  };
 
   const handleTimingSelect = (e: any) => {
     setTiming(e.target.value)
@@ -144,6 +157,10 @@ const handleMedicineChange = (selectedMedicine: any) => {
     if (name === 'permintaan') {
       updatedFormValues['jt1'] = value;
       updatedFormValues['jp1'] = value;
+    }
+
+    if (name === 'jam0') {
+      updatedFormValues['waktu_pemberian1'] = `${admintime}: ${value}`;
     }
 
     setFormValues(updatedFormValues);
