@@ -29,7 +29,7 @@ const Dashboard = () => {
     id_pk: 168041,
     pasien: '00059605',
     dokter: '000820',
-    tanggal_resep: formatDateTime(new Date()),
+    tanggal_resep: new Date(),
     jenis_resep: 'Non Racikan',
     no_r1: currentNoR.toString(),
     jt1: '',
