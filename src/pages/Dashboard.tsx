@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [dosisRacik, setDosisRacik] = useState('');
   const [satuanKekuatan, setSatuanKekuatan] = useState('');
   const [admintime, setAdminTime] = useState('');
-  const [jam0, setJam0] = useState('');
+  const [jam0, setJam0] = useState(null);
   const [ap, setAp] = useState('')
   const [timing, setTiming] = useState('')
   const [aturanpakai2, setAturanpakai2] = useState('')
@@ -61,7 +61,7 @@ const Dashboard = () => {
     aturanpakai: '',
     aturanPakai: '',
     admintime: '',
-    jam0: '',
+    jam0: '06:00',
     aturanpakai2: '',
     timing: ''
   });
@@ -119,10 +119,8 @@ const handleMedicineChange = (selectedMedicine: any) => {
       setAturanpakai2(selectedRule.keterangan)
       setJam0('06:00')
     } else {
-      setAp('')
-      setAdminTime('')
-      setTiming('')
-      setAturanpakai2('')
+      setKekuatan1('');
+      setSatuanKekuatan('');
       setJam0('')
     }
   };
@@ -390,7 +388,7 @@ return (
                   className="shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-xs w-1/3 mr-2"
                   id="jam0"
                   type="time"
-                  value={jam0 || ''}
+                  value={formValues.jam0 || ''}
                   onChange={handleInputChange} />
                 <button
                   className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-4 rounded inline-flex items-center"

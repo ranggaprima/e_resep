@@ -16,19 +16,19 @@ interface MedicineSelectProps {
 const MedicineSelect: React.FC<MedicineSelectProps> = ({ onSelectChange, className }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [defaultOption, setDefaultOption] = useState<OptionType | null>(null);
+  const [defaultOption, setDefaultOption] = useState<OptionType | null>({ value: '000820', label: 'Admin Farmagitechs' });
   const dispatch = useDispatch();
   const { dokter, loading } = useSelector((state: any) => state.dokter);
 
   useEffect(() => {
-    setDefaultOption({ value: '000820', label: 'Admin Farmagitechs' });
     dispatch(fetchDokters('', 1));  // Fetch with default query and page 1
   }, [dispatch]);
 
   useEffect(() => {
     if (dokter && dokter.length > 0) {
-      // Set the default option to the first dokter in the list
-      setDefaultOption({ value: '000820', label: 'Admin Farmagitechs' });
+      // Set the default option based on the fetched data
+      const firstDokter = dokter[0];
+      setDefaultOption({ value: firstDokter.id, label: firstDokter.nama });
     }
   }, [dokter]);
 
@@ -44,7 +44,6 @@ const MedicineSelect: React.FC<MedicineSelectProps> = ({ onSelectChange, classNa
         dispatch(fetchDokters(value, 1));
       }, 500) // 500ms delay
     );
-  
   };
 
   const handleChange = (selectedOption: OptionType | null) => {
