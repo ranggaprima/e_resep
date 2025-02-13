@@ -190,16 +190,19 @@ return (
           </h2>
         </div>
         <h1 className="text-1xl font-bold">No. RM, Nama: 00059605, SLAMET URIP TN,</h1>
-        <p className="pt-2 pb-4">No. Telp: 089600002222</p>
+        <p className="pt-2 pb-4">No. Telp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 089600002222</p>
         <div className="space-y-4">
           <p className="flex items-center">
-            <span>Untuk Pasien: 00059605 / SLAMET URIP TN   / Poliklinik /</span>
+            <span>Untuk Pasien&nbsp;: 00059605 / SLAMET URIP TN   / Poliklinik /</span>
           </p>
           <p className="flex items-center">
-            <span>Usia: 104 Tahun 9 Bulan 12 hari</span>
+            <span>Usia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 104 Tahun 9 Bulan 12 hari</span>
           </p>
           <p className="flex items-center">
-            <span>Berat Badan: 71 Kg</span>
+            <span>Berat Badan&nbsp;&nbsp;: 71 Kg</span>
+          </p>
+          <p className="flex items-center">
+            <span className="text-red-600 md:text-red-600">Ket&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ***</span>
           </p>
         </div>
       </div>
@@ -460,7 +463,7 @@ return (
         <div className="bg-gray-300 h-2"></div>
       </div>
       <div className="col-span-1 md:col-span-3 bg-white text-black p-4">
-        <h2 className="text-xl font-bold mb-2">Submitted Data</h2>
+        <h2 className="text-xl font-bold mb-2"></h2>
         <table className="table-auto w-full text-left">
           <tbody>
             {submittedData.map((data, index) => (
